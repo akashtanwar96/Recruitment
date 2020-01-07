@@ -1,0 +1,39 @@
+<nz-table #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>RRF ID</th>
+      <th>Recruiter</th>
+      <th>Project</th>
+      <th>H.M.</th>
+      <th>Start Date</th>
+      <th>Skills</th>
+      <th></th>
+      <th nzWidth="200px">Status</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data;let i index">
+      <td>{{ data.key }}</td>
+      <td>{{ data.recruiter }}</td>
+     
+      <td>{{ data.project }}</td>
+      <td> dummy</td>
+     
+      <td>
+        {{data.startdate}}
+     </td>
+    <td>{{data.skills}}</td>
+      <td>
+        <a (click)="onViewRRF()">View RRF</a>
+      </td>
+      <td  nzWidth="200px">	<nz-select style="width: 100%;" nzShowSearch nzAllowClear nzPlaceHolder="Select a status">
+        <nz-option nzLabel="Pending MD Approval" nzValue="pendingapproval"></nz-option>
+        <nz-option nzLabel="Pending" nzValue="onetoone"></nz-option>
+        <nz-option nzLabel="In Progress" nzValue="progress"></nz-option>
+        <nz-option nzLabel="Closed" nzValue="closed"></nz-option>
+      </nz-select></td>
+    </tr>
+  </tbody>
+</nz-table>
+<app-rrfdetails [visible]="displayrrf" (rrfdetails)="drawerconfig($event)"></app-rrfdetails>

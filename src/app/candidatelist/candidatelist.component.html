@@ -1,0 +1,55 @@
+<nz-table #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>Schedule Interview</th>
+      <th>Action</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.name }}</td>
+      <td>{{ data.age }}</td>
+      <td>{{ data.address }}</td>
+      <td (click)="onScheduleInterview()"><a>Schedule Interview</a></td>
+      <td>
+        <a (click)="onInterviewView(data)">Action - View previous interviews</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a (click)="onView()">View Candidate</a>
+      </td>
+      <td>Dummy</td>
+    </tr>
+  </tbody>
+</nz-table>
+<app-candidateview (visibleChange)="onPopupClose($event)" [userData]="null" [visible]="displaypopup"></app-candidateview>
+<nz-modal
+[(nzVisible)]="isVisible"
+nzTitle="Schedule Interview"
+(nzOnCancel)="handleCancel()"
+nzOkText='OK'
+nzCancelText='Cancel'
+(nzOnOk)="handleOk()"
+[nzOkLoading]="isOkLoading"
+>
+<div nz-row>
+  <nz-timeline>
+    <nz-timeline-item nzColor="green">Create a services site 2015-09-01</nz-timeline-item>
+    <nz-timeline-item nzColor="green">Solve initial network problems 2015-09-01</nz-timeline-item>
+    <nz-timeline-item nzColor="red">
+      <p>Solve initial network problems 1</p>
+    </nz-timeline-item>
+    <nz-timeline-item>
+      <p>Technical testing 1</p>
+    </nz-timeline-item>
+    <nz-timeline-item nzColor="gray">
+      <p>Technical testing 1</p>
+    </nz-timeline-item>
+    <nz-timeline-item nzColor="gray">
+      <p>Technical testing 1</p>
+    </nz-timeline-item>
+  </nz-timeline>
+</div>
+</nz-modal>

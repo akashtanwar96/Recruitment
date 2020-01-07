@@ -1,0 +1,61 @@
+<div nz-row nzGutter="24">
+	User Data from API
+</div>
+<form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+	<div nz-row nzGutter="24">
+		<div nz-col nzGutter="24" nzSpan="12">
+			<nz-form-item>
+				<nz-form-label>Interview Type</nz-form-label>
+				<nz-form-control>
+					<nz-select nzShowSearch formControlName="type" nzAllowClear nzPlaceHolder="Select a interview type">
+						<nz-option nzLabel="Skype" nzValue="skype"></nz-option>
+						<nz-option nzLabel="Onetoone" nzValue="onetoone"></nz-option>
+						<nz-option nzLabel="Telephonic" nzValue="telephonic"></nz-option>
+					</nz-select>
+				</nz-form-control>
+			</nz-form-item>
+		</div>
+		<div nz-col nzGutter="24" nzSpan="12">
+			<nz-form-item>
+				<nz-form-label>Interview Date & Time</nz-form-label>
+				<nz-form-control>
+					<nz-date-picker
+					formControlName="date"
+						[nzMode]="dateMode"
+							nzShowTime
+						(nzOnOpenChange)="handleDateOpenChange($event)"
+						(nzOnPanelChange)="handleDatePanelChange($event)"
+					>
+    </nz-date-picker>
+				</nz-form-control>
+			</nz-form-item>
+		</div>
+	</div>
+	<div nz-row nzGutter="24">
+		<div nz-col nzGutter="24" nzSpan="12">
+			<nz-form-item>
+				<nz-form-label>Interviewer</nz-form-label>
+				<nz-form-control>
+					<nz-select nzShowSearch formControlName="interviewer" nzAllowClear nzPlaceHolder="Select a interview type">
+						<nz-option nzLabel="A" nzValue="a"></nz-option>
+						<nz-option nzLabel="B" nzValue="b"></nz-option>
+						<nz-option nzLabel="T" nzValue="t"></nz-option>
+					</nz-select>
+				</nz-form-control>
+			</nz-form-item>
+		</div>
+		<div nz-col nzGutter="24" nzSpan="12">
+			<nz-form-item>
+				<nz-form-label>Other Details</nz-form-label>
+				<nz-form-control>
+					<input type="text" nz-input formControlName="other" />
+				</nz-form-control>
+			</nz-form-item>
+		</div>
+	</div>
+	<nz-form-item>
+		<nz-form-control>
+			<button nz-button class="login-form-button" [nzType]="'primary'">Submit</button>
+		</nz-form-control>
+	</nz-form-item>
+</form>
