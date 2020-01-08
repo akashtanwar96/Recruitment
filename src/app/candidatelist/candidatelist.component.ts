@@ -7,6 +7,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class CandidatelistComponent implements OnInit {
   @Output() scheduleinterview = new EventEmitter<string>();
+  substatus : string = null;
+  isStatus = false;
   isVisible = false;
   displaypopup = false;
   isOkLoading = false;
@@ -15,37 +17,61 @@ export class CandidatelistComponent implements OnInit {
     {
       key: '1',
       name: 'John Brown',
-      age: 32,
+      position: 'Analyst',
+      age: 800000,
+      status: 'CV Submitted',
+      email: 'abc@yopmail.com',
+      phone: 9999999990,
       address: 'New York No. 1 Lake Park'
     },
     {
       key: '2',
       name: 'Jim Green',
-      age: 42,
+      position: 'Analyst',
+      age: 800000,
+      status: 'CV Submitted',
+      email: 'abc@yopmail.com',
+      phone: 9999999990,
       address: 'London No. 1 Lake Park'
     },
     {
       key: '3',
       name: 'Joe Black',
-      age: 32,
+      position: 'Analyst',
+      age: 800000,
+      status: 'CV Submitted',
+      email: 'abc@yopmail.com',
+      phone: 9999999990,
       address: 'Sidney No. 1 Lake Park'
     },
     {
       key: '1',
       name: 'John Brown',
-      age: 32,
+      position: 'Analyst',
+      age: 800000,
+      status: 'CV Submitted',
+      email: 'abc@yopmail.com',
+      phone: 9999999990,
       address: 'New York No. 1 Lake Park'
     },
     {
       key: '2',
       name: 'Jim Green',
-      age: 42,
+      position: 'Analyst',
+      age: 800000,
+      status: 'CV Submitted',
+      email: 'abc@yopmail.com',
+      phone: 9999999990,
       address: 'London No. 1 Lake Park'
     },
     {
       key: '3',
       name: 'Joe Black',
-      age: 32,
+      position: 'Analyst',
+      age: 800000,
+      status: 'CV Submitted',
+      email: 'abc@yopmail.com',
+      phone: 9999999990,
       address: 'Sidney No. 1 Lake Park'
     }
   ];
@@ -79,5 +105,12 @@ export class CandidatelistComponent implements OnInit {
   }
   onScheduleInterview() {
     this.scheduleinterview.emit('scheduleinterview');
+  }
+  onTechnicalClick() {
+    this.isStatus = true;
+  }
+  handleStatusCancel() {
+    this.isStatus = false;
+
   }
 }

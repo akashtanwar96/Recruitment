@@ -1,25 +1,25 @@
 <nz-sider nzTheme="dark">
   <div class="logo"></div>
   <ul nz-menu nzTheme="dark" nzMode="inline">
-    <li nz-menu-item (click)="onMenuClick('home')">
+    <li nz-menu-item nzSelected (click)="onMenuClick('home')">
       <i nz-icon nzType="file"></i>
       <span>Home</span>
     </li>
-    <li nz-menu-item>
+    <li nz-menu-item (click)="onMenuClick('candidateregistration')">
       <i nz-icon nzType="video-camera"></i>
-      <span>nav 2</span>
+      <span>Candidate Registration</span>
     </li>
-    <li nz-menu-item>
+    <li nz-menu-item (click)="onMenuClick('nothing')">
       <i nz-icon nzType="upload"></i>
       <span>Nav 3</span>
     </li>
-    <li nz-menu-item>
+    <li nz-menu-item (click)="onMenuClick('nothing')">
       <i nz-icon nzType="bar-chart"></i>
       <span>nav 4</span>
     </li>
     <li nz-menu-item (click)="onMenuClick('rrf')">
       <i nz-icon nzType="cloud-o"></i>
-      <span>RRF</span>
+      <span>Create RRF</span>
     </li>
     <li nz-menu-item (click)="onMenuClick('rrflist')">
       <i nz-icon nzType="appstore-o"></i>

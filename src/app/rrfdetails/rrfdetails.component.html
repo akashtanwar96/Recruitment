@@ -3,7 +3,7 @@
   <form nz-form [formGroup]="validateForm">
     <div nz-row nzGutter="8">
       <div nz-col nzSpan="12">
-        <nz-form-item>
+        <nz-form-item nz-row class="register-area">
           <nz-form-label>Project</nz-form-label>
           <nz-form-control>
             <input nz-input formControlName="project" [disabled]="true" />
@@ -11,7 +11,7 @@
         </nz-form-item>
       </div>
       <div nz-col nzSpan="12">
-        <nz-form-item>
+        <nz-form-item nz-row class="register-area">
           <nz-form-label>Skills</nz-form-label>
           <nz-form-control>
               <input type="text" formControlName="skills" [disabled]="true" nz-input/>
@@ -21,7 +21,7 @@
     </div>
     <div nz-row nzGutter="8">
       <div nz-col nzSpan="12">
-        <nz-form-item>
+        <nz-form-item nz-row class="register-area">
           <nz-form-label>Billable</nz-form-label>
           <nz-form-control>
             <label nz-checkbox formControlName="billable" nzDisabled ></label>
@@ -29,7 +29,7 @@
         </nz-form-item>
       </div>
       <div nz-col nzSpan="12">
-        <nz-form-item>
+        <nz-form-item nz-row class="register-area">
           <nz-form-label>Location</nz-form-label>
           <nz-form-control>
             <input nz-input  formControlName="location" [disabled]="true" />
@@ -39,7 +39,7 @@
     </div>
     <div nz-row nzGutter="8">
       <div nz-col nzSpan="12">
-        <nz-form-item>
+        <nz-form-item nz-row class="register-area">
           <nz-form-label>Salary</nz-form-label>
           <nz-form-control>
             <input nz-input  formControlName="salary" [disabled]="true"  />  
@@ -47,7 +47,7 @@
         </nz-form-item>
       </div>
       <div nz-col nzSpan="12">
-        <nz-form-item>
+        <nz-form-item nz-row class="register-area">
           <nz-form-label>Approver</nz-form-label>
           <nz-form-control>
             <input nz-input  formControlName="approver" [disabled]="true"/>
@@ -58,7 +58,7 @@
     </div>
     <div nz-row nzGutter="8">
       <div nz-col nzSpan="24">
-        <nz-form-item>
+        <nz-form-item nz-row class="register-area">
           <nz-form-label>Job Description</nz-form-label>
           <nz-form-control>
             <textarea  [disabled]="true"

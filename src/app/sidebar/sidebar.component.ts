@@ -23,6 +23,9 @@ export class SidebarComponent implements OnInit {
     }else if (val.toLowerCase() == 'rrflist') {
       this.componentEmitter.emit('rrflist')
     }
+    else if (val.toLowerCase() == 'candidateregistration') {
+      this.componentEmitter.emit('candidateregistration')
+    }
     else {
       this.componentEmitter.emit('notfound')
       console.log('not found page to be created'); //TODO

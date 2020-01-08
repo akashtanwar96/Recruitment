@@ -14,6 +14,7 @@ import { RrfComponent } from './rrf/rrf.component';
 import { RrflistComponent } from './rrflist/rrflist.component';
 import { RrfdetailsComponent } from './rrfdetails/rrfdetails.component';
 import { ScheduleinterviewComponent } from './scheduleinterview/scheduleinterview.component';
+import { CandidateregisterationComponent } from './candidateregisteration/candidateregisteration.component';
 
 @NgModule({
    declarations: [
@@ -27,7 +28,8 @@ import { ScheduleinterviewComponent } from './scheduleinterview/scheduleintervie
       RrfComponent,
       RrflistComponent,
       RrfdetailsComponent,
-      ScheduleinterviewComponent
+      ScheduleinterviewComponent,
+      CandidateregisterationComponent
    ],
    imports: [
       BrowserModule,

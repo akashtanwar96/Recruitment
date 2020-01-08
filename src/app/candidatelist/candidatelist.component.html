@@ -2,32 +2,46 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Age</th>
-      <th>Address</th>
+      <th>Position</th>
+      <th>Salary</th>
+      <th nzWidth="20%;">Email/Phone</th>
       <th>Schedule Interview</th>
       <th>Action</th>
       <th>Status</th>
+      <th>Sub Status</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let data of basicTable.data">
       <td>{{ data.name }}</td>
+      <td>{{ data.position }}</td>
       <td>{{ data.age }}</td>
-      <td>{{ data.address }}</td>
+      <td nzWidth="20%;"><i nz-icon nzType="mail" style="font-size: 12px " nzTheme="outline"></i> &nbsp;{{data.email}}<br>
+        <i nz-icon nzType="phone" nzTheme="fill"></i> &nbsp;{{data.phone}} </td>
       <td (click)="onScheduleInterview()"><a>Schedule Interview</a></td>
       <td>
-        <a (click)="onInterviewView(data)">Action - View previous interviews</a>
-        <nz-divider nzType="vertical"></nz-divider>
+        <a (click)="onInterviewView(data)">View previous interviews</a>
+        <br>
         <a (click)="onView()">View Candidate</a>
       </td>
-      <td>Dummy</td>
+      <td>CV Submitted</td>
+      <td>
+         <nz-select [(ngModel)]="substatus" (ngModelChange)="onTechnicalClick()" style="width: 150px;" nzAllowClear nzPlaceHolder="Select a status">
+        <nz-option nzLabel="CV Submitted" nzValue="pendingapproval"></nz-option>
+        <nz-option nzLabel="CV Screening by HM" nzValue="onetoone"></nz-option>
+        <nz-option nzLabel="Screening" nzValue="progress"></nz-option>
+        <nz-option nzLabel="Technical" nzValue="closed"></nz-option>
+        <nz-option nzLabel="Progress" nzValue="progress"></nz-option>
+        <nz-option nzLabel="Technical 2" nzValue="closed"></nz-option>
+      </nz-select>
+    </td>
     </tr>
   </tbody>
 </nz-table>
 <app-candidateview (visibleChange)="onPopupClose($event)" [userData]="null" [visible]="displaypopup"></app-candidateview>
 <nz-modal
 [(nzVisible)]="isVisible"
-nzTitle="Schedule Interview"
+nzTitle="Previously Scheduled Interviews"
 (nzOnCancel)="handleCancel()"
 nzOkText='OK'
 nzCancelText='Cancel'
@@ -51,5 +65,17 @@ nzCancelText='Cancel'
       <p>Technical testing 1</p>
     </nz-timeline-item>
   </nz-timeline>
+</div>
+</nz-modal>
+
+<nz-modal
+[(nzVisible)]="isStatus"
+nzTitle="Current Status"
+(nzOnCancel)="handleStatusCancel()"
+>
+<div nz-row>
+  <button nz-button nzType="primary">Primary</button>
+  <button nz-button nzType="default">Default</button>
+  <button nz-button nzType="danger">Danger</button>
 </div>
 </nz-modal>

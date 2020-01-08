@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { NgZorroAntdModule, en_US, NZ_I18N } from 'ng-zorro-antd';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { NzIconModule } from 'ng-zorro-antd/icon';
@@ -59,6 +59,9 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
     NzSelectModule,
     NzTimePickerModule,
     NzDatePickerModule
+  ],
+  providers   : [
+    { provide: NZ_I18N, useValue: en_US }
   ]
 })
 export class SharedModule { }

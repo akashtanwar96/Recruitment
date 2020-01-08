@@ -1,40 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { UploadFilter, UploadFile, NzMessageService } from 'ng-zorro-antd';
+import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
+import { UploadFile, UploadFilter } from 'ng-zorro-antd/upload';
+import { NzMessageService } from 'ng-zorro-antd';
 import { Observable, Observer } from 'rxjs';
-
 @Component({
-  selector: 'app-rrf',
-  templateUrl: './rrf.component.html',
-  styleUrls: ['./rrf.component.scss']
+  selector: 'app-candidateregisteration',
+  templateUrl: './candidateregisteration.component.html',
+  styleUrls: ['./candidateregisteration.component.scss']
 })
-export class RrfComponent implements OnInit {
+export class CandidateregisterationComponent implements OnInit {
   validateForm: FormGroup;
+
   constructor(private fb: FormBuilder,
     private msg: NzMessageService) { }
 
   ngOnInit() {
     this.validateForm = this.fb.group({
-      project: [null, [Validators.required]],
+      name: [null, [Validators.required]],
+      email: [null, [Validators.email, Validators.required]],
       position: [null, [Validators.required]],
-      billable: [false, [Validators.required]],
-      billingp: [null],
+      notice: [null, [Validators.required]],
+      currentctc: [null, [Validators.required]],
+      expectedctc: [null, [Validators.required]],
+      phoneNumberPrefix: ['+91'],
+      phoneNumber: [null, [Validators.required]],
       skills: [null, [Validators.required]],
-      location: [null, [Validators.required]],
-      salary: [null, [Validators.required]],
-      other: [null, [Validators.required]],
-
-      // email: [null, [Validators.email, Validators.required]],
       // attachments: [{}, [Validators.required]],
+      agree: [false]
     });
   }
-  
   submitForm(): void {
     for (const i in this.validateForm.controls) {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
+    console.log(this.validateForm.value,'hello')
   }
+  
+
   filters: UploadFilter[] = [
     {
       name: 'type',
@@ -60,6 +63,7 @@ export class RrfComponent implements OnInit {
   ];
   fileList = [
   ];
+
   handleChange(info: any): void {
     const fileList = info.fileList;
     // 2. read from response and show file link
@@ -76,5 +80,4 @@ export class RrfComponent implements OnInit {
     });
   }
 
-  
 }

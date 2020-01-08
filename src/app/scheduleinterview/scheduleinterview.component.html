@@ -20,6 +20,7 @@
 				<nz-form-label>Interview Date & Time</nz-form-label>
 				<nz-form-control>
 					<nz-date-picker
+					style="width: 100%;"
 					formControlName="date"
 						[nzMode]="dateMode"
 							nzShowTime
@@ -55,7 +56,13 @@
 	</div>
 	<nz-form-item>
 		<nz-form-control>
-			<button nz-button class="login-form-button" [nzType]="'primary'">Submit</button>
+			<div nz-row nzGutter="24">
+				<div nz-col nzSpan="12" nzGutter="24"><button nz-button class="login-form-button" [nzType]="'primary'">Submit</button></div>
+				<div nz-col nzSpan="12" nzGutter="24">	<button nz-button (click)="onCancel()" class="login-form-button" [nzType]="'secondary'">Cancel</button></div>
+
+			</div>
+		
 		</nz-form-control>
+
 	</nz-form-item>
 </form>

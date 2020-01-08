@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./scheduleinterview.component.scss']
 })
 export class ScheduleinterviewComponent implements OnInit {
+  @Output() cancel = new EventEmitter<string>();
   validateForm: FormGroup;
   dateMode = 'time';
   constructor(private fb: FormBuilder) { }
@@ -33,6 +34,10 @@ export class ScheduleinterviewComponent implements OnInit {
 
   handleDatePanelChange(mode: string): void {
     console.log('handleDatePanelChange: ', mode);
+  }
+
+  onCancel() {
+    this.cancel.emit('cancel');
   }
   
 }

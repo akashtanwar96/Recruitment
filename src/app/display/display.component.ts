@@ -15,4 +15,8 @@ export class DisplayComponent implements OnInit {
   scheduleInterview() {
     this.component = 'scheduleinterview'
   }
+  onCancelSchedule(evt: Event) {
+    this.component = 'candidatelist'
+
+  }
 }
