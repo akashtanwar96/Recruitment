@@ -1,0 +1,50 @@
+<nz-layout class="left-layout">
+  <!-- <app-sidebar (componentEmitter)="onComponentClick($event)"></app-sidebar> -->
+  <nz-sider nzTheme="dark">
+    <div class="logo"></div>
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-menu-item nzSelected (click)="onMenuClick('home')">
+        <i nz-icon nzType="file"></i>
+        <span>Home</span>
+      </li>
+      <li nz-menu-item (click)="onMenuClick('register')">
+        <i nz-icon nzType="video-camera"></i>
+        <span>Candidate Registration</span>
+      </li>
+      <li nz-menu-item (click)="onMenuClick('create')">
+        <i nz-icon nzType="upload"></i>
+        <span>Create RRF</span>
+      </li>
+      <li nz-menu-item (click)="onMenuClick('rrf')"  >
+        <i nz-icon nzType="appstore-o"></i>
+        <span>RRF List</span>
+      </li>
+      <li nz-menu-item (click)="onMenuClick('candidate')"  >
+        <i nz-icon nzType="team"></i>
+        <span>Candidate List</span>
+      </li>
+      <li nz-menu-item (click)="onMenuClick('notfound')">
+        <i nz-icon nzType="shop"></i>
+        <span>Not Found</span>
+      </li>
+      <li nz-menu-item (click)="onMenuClick('notfound')">
+        <i nz-icon nzType="cloud"></i>
+        <span>Schedule Interview</span>
+      </li>
+      <li nz-menu-item (click)="onMenuClick('notfound')">
+        <i nz-icon nzType="bar-chart"></i>
+        <span>nav 8</span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout class="right-layout">
+    <nz-header><h2 nz-text style="text-align: center;"><strong></strong> </h2></nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet ></router-outlet>
+      </div>
+    </nz-content>
+    <!-- <app-display [component]="componentName" (displaycomp)="onDisplayComp($event)"></app-display> -->
+    <nz-footer> Developed By Akash</nz-footer>
+  </nz-layout>
+</nz-layout>

@@ -1,0 +1,95 @@
+<div nz-row nzGutter="24">
+  <div nz-col nzGutter="24" nzSpan="4">.</div>
+  <div nz-col nzGutter="24" nzSpan="16">
+    <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+      <nz-form-item nz-row class="register-area">
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="name" nzRequired>
+          <span>
+            Name
+            <i nz-icon nz-tooltip nzTitle="What do you want us to call you" nzType="question-circle"
+              nzTheme="outline"></i>
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your name!">
+          <input nz-input id="name" formControlName="name" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row class="register-area">
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+          <input nz-input formControlName="email" id="email" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row class="register-area">
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired>Phone Number</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" [nzValidateStatus]="validateForm.controls['phoneNumber']"
+          nzErrorTip="Please input valid phone number!">
+          <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
+            <ng-template #addOnBeforeTemplate>
+              <nz-select style="width: 70px;" formControlName="phoneNumberPrefix" class="phone-select">
+                <nz-option nzLabel="+91" nzValue="+91"></nz-option>
+              </nz-select>
+            </ng-template>
+            <input type="tel"  pattern="[0-9]{10}" formControlName="phoneNumber" id="'phoneNumber'" nz-input />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row class="register-area"> 
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="position" nzRequired>Position</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your current Position!">
+          <input nz-input type="text" id="position" formControlName="position" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row class="register-area">
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="notice" nzRequired>Notice Period in Months</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="'Notice period required'">
+          <nz-select nzShowSearch formControlName="notice" id="notice" nzAllowClear nzPlaceHolder="Select a notice period" >
+            <nz-option nzLabel="1 Month" nzValue="1"></nz-option>
+            <nz-option nzLabel="2 Month" nzValue="2"></nz-option>
+            <nz-option nzLabel="3 Month" nzValue="3"></nz-option>
+            <nz-option nzLabel="3 Month & more" nzValue="4"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row class="register-area">
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="currentctc" nzRequired>Current CTC</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="'Valid Current CTC required'">
+          <input nz-input type="text" formControlName="currentctc" id="currentctc" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row class="register-area">
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="expectedctc" nzRequired>Expected CTC</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="'Expected CTC required'">
+          <input nz-input type="text" formControlName="expectedctc" id="expectedctc" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row class="register-area">
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="company" nzRequired>skills</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input skills!">
+          <textarea formControlName="skills" nz-input rows="1" placeholder="write any skills"></textarea>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row class="register-area">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <nz-upload nzAction="https://jsonplaceholder.typicode.com/posts/"
+            [nzFileList]="fileList" nzMultiple [nzLimit]="2" [nzFilter]="filters" (nzChange)="handleChange($event)">
+            <button nz-button><i nz-icon nzType="upload"></i><span>Click to Upload Resume</span></button>
+          </nz-upload>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row class="register-area">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <label nz-checkbox formControlName="agree">
+            <span>I have read the <a>agreement</a></span>
+          </label>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row class="register-area">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button nz-button nzType="primary">Register</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+  <div nz-col nzGutter="24" nzSpan="4">.</div>
+</div>

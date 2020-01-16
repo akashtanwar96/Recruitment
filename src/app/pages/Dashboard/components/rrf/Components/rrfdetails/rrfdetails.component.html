@@ -1,0 +1,77 @@
+<nz-drawer [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto', 'padding-bottom': '53px' }"
+  [nzMaskClosable]="false" [nzWidth]="720" [nzVisible]="visible" nzTitle="View RRF" (nzOnClose)="close()">
+  <form nz-form [formGroup]="validateForm">
+    <div nz-row nzGutter="8">
+      <div nz-col nzSpan="12">
+        <nz-form-item nz-row class="register-area">
+          <nz-form-label>Project</nz-form-label>
+          <nz-form-control>
+            <input nz-input formControlName="project" [disabled]="true" />
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzSpan="12">
+        <nz-form-item nz-row class="register-area">
+          <nz-form-label>Skills</nz-form-label>
+          <nz-form-control>
+              <input type="text" formControlName="skills" [disabled]="true" nz-input/>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div nz-row nzGutter="8">
+      <div nz-col nzSpan="12">
+        <nz-form-item nz-row class="register-area">
+          <nz-form-label>Billable</nz-form-label>
+          <nz-form-control>
+            <label nz-checkbox formControlName="billable" nzDisabled ></label>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzSpan="12">
+        <nz-form-item nz-row class="register-area">
+          <nz-form-label>Location</nz-form-label>
+          <nz-form-control>
+            <input nz-input  formControlName="location" [disabled]="true" />
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div nz-row nzGutter="8">
+      <div nz-col nzSpan="12">
+        <nz-form-item nz-row class="register-area">
+          <nz-form-label>Salary</nz-form-label>
+          <nz-form-control>
+            <input nz-input  formControlName="salary" [disabled]="true"  />  
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzSpan="12">
+        <nz-form-item nz-row class="register-area">
+          <nz-form-label>Approver</nz-form-label>
+          <nz-form-control>
+            <input nz-input  formControlName="approver" [disabled]="true"/>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+     
+    </div>
+    <div nz-row nzGutter="8">
+      <div nz-col nzSpan="24">
+        <nz-form-item nz-row class="register-area">
+          <nz-form-label>Job Description</nz-form-label>
+          <nz-form-control>
+            <textarea  [disabled]="true"
+              nz-input  formControlName="jobdescription"
+              [nzAutosize]="{ minRows: 4, maxRows: 4 }"
+            ></textarea>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+  </form>
+  <div class="footer">
+    <button type="button" (click)="close()" class="ant-btn" style="margin-right: 8px;"><span>Cancel</span></button>
+    <button type="button" (click)="onViewCandidate()" class="ant-btn" style="margin-right: 8px;"><span>View Candidate List</span></button>
+  </div>
+</nz-drawer>
